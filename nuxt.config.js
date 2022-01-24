@@ -51,7 +51,7 @@ export default defineNuxtConfig({
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'http://localhost:80/',
+    baseURL: 'https://deepnotes-app-server.caprover.deepnotes.app/',
   },
 
   router: {
