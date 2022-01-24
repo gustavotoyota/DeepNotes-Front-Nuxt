@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "start": "nuxt start",
-    "generate": "nuxi preview"
+    "start": "nuxi preview",
+    "generate": "nuxi generate"
   },
   "dependencies": {
     "@nuxtjs/auth-next": "5.0.0-1643023090.140d3d1",
