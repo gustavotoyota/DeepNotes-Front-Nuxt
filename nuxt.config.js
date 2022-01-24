@@ -5,8 +5,7 @@ import { defineNuxtConfig } from '@nuxt/bridge'
 export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - DeepNotes-Integration',
-    title: 'DeepNotes-Integration',
+    title: 'DeepNotes',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,6 +23,11 @@ export default defineNuxtConfig({
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/app/mixins/global-mixin.js' },
+    { src: '~/plugins/app/mixins/app-mixin.js' },
+
+    { src: '~/plugins/app/app.js' },
+    { src: '~/plugins/app/utils.js' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +43,7 @@ export default defineNuxtConfig({
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
@@ -46,7 +51,52 @@ export default defineNuxtConfig({
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'http://localhost:80/',
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+
+  auth: {
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/',
+      home: '/',
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/auth/login', method: 'post' },
+          refresh: { url: '/auth/refresh', method: 'post' },
+          user: { url: '/auth/user', method: 'post' },
+          logout: false,
+        },
+        token: {
+          property: 'token',
+          // global: true, // Default: true
+          // name: 'Authorization', // Default: 'Authorization'
+          // required: true, // Default: true
+          // type: 'Bearer', // Default: 'Bearer'
+          // maxAge: 60 * 30, // Default: 60 * 30
+        },
+        refreshToken: {
+          property: 'refreshToken',
+          data: 'refreshToken', // Default: 'refresh_token'
+          // maxAge: 60 * 60 * 24 * 30, // Default: 60 * 60 * 24 * 30
+          // required: true, // Default: true
+          tokenRequired: false, // Default: false
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true, // Default: true
+        },
+        // autoLogout: false, // Default: false
+
+        scheme: 'refresh',
+      },
+    },
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
