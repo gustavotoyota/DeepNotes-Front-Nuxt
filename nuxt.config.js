@@ -59,6 +59,11 @@ export default defineNuxtConfig({
   },
 
   auth: {
+    cookie: {
+      options: {
+        domain: 'deepnotes.app',
+      },
+    },
     redirect: {
       login: '/',
       logout: '/',
