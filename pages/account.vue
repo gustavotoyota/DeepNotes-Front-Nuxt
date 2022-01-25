@@ -5,8 +5,8 @@
       <button @click="resendEmailLink">Resend link</button>
       <button @click="cancelEmailChange">Cancel change</button>
     </div>
-    <div>E-mail: {{ $auth.user.email }} <button @click="changeEmail">Change</button></div>
-    <div>Password: ******** <button @click="changePassword">Change</button></div>
+    <div>E-mail: {{ $auth.user.email }} <v-btn @click="changeEmail">Change</v-btn></div>
+    <div>Password: ******** <v-btn @click="changePassword">Change</v-btn></div>
   </div>
 </template>
 

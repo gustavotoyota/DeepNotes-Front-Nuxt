@@ -1,16 +1,22 @@
 <template>
-  <div>
+  <div style="padding: 20px">
     <form @submit.prevent="onSubmit">
-      <div>
-        <label for="email">E-mail:</label>
-        <input v-model="loginData.email" id="email" type="text"/>
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input v-model="loginData.password" ref="password" id="password" type="password"/>
-      </div>
+      <v-text-field
+      label="E-mail"
+      id="email"
+      dense
+      outlined
+      v-model="loginData.email"/>
+    
+      <v-text-field
+      label="Password"
+      id="password"
+      dense
+      outlined
+      v-model="loginData.password"
+      type="password"/>
 
-      <input type="submit" value="Login"/>
+      <v-btn type="submit">Login</v-btn>
     </form>
   
     <div><NuxtLink to="register">Register</NuxtLink></div>
