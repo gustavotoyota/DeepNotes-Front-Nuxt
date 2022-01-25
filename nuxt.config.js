@@ -65,9 +65,9 @@ export default defineNuxtConfig({
       },
     },
     redirect: {
-      login: '/',
+      login: '/login',
       logout: '/',
-      callback: '/',
+      callback: '/login',
       home: '/',
     },
     strategies: {
