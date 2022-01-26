@@ -34,6 +34,11 @@
           Account
         </v-btn>
 
+        <v-btn depressed
+        href="https://pages.deepnotes.app/">
+          Go to pages
+        </v-btn>
+
         <v-btn depressed @click="logout">
           Logout
         </v-btn>
