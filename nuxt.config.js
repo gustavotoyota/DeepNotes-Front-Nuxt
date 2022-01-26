@@ -2,6 +2,8 @@ import colors from 'vuetify/es5/util/colors'
 
 import { defineNuxtConfig } from '@nuxt/bridge'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -61,7 +63,7 @@ export default defineNuxtConfig({
   auth: {
     cookie: {
       options: {
-        domain: 'deepnotes.app',
+        domain: isDev ? null : 'deepnotes.app',
       },
     },
     redirect: {
