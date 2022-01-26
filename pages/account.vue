@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="$auth.user.newEmail && $auth.user.email !== $auth.user.newEmail">
+    <div v-if="$auth.user.newEmail">
       Unconfirmed e-mail: {{ $auth.user.newEmail }}
-      <button @click="resendEmailLink">Resend link</button>
-      <button @click="cancelEmailChange">Cancel change</button>
+      <v-btn @click="resendEmailLink">Resend link</v-btn>
+      <v-btn @click="cancelEmailChange">Cancel change</v-btn>
     </div>
     <div>E-mail: {{ $auth.user.email }} <v-btn @click="changeEmail">Change</v-btn></div>
     <div>Password: ******** <v-btn @click="changePassword">Change</v-btn></div>
