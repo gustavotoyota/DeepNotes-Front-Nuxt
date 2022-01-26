@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  auth: 'guest',
+  auth: false,
 
   async validate(ctx) {
     const response = await ctx.$axios.post('/auth/email-confirmation', {
