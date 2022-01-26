@@ -70,7 +70,7 @@ export default defineNuxtConfig({
       login: '/login',
       logout: '/',
       callback: '/login',
-      home: '/',
+      home: 'https://pages.deepnotes.app/',
     },
     strategies: {
       local: {
