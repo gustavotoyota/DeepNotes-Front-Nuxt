@@ -68,9 +68,9 @@ export default defineNuxtConfig({
     },
     redirect: {
       login: '/login',
-      logout: '/',
       callback: '/login',
       home: 'https://pages.deepnotes.app/',
+      logout: '/',
     },
     strategies: {
       local: {
@@ -134,5 +134,5 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
 })
