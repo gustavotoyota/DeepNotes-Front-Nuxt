@@ -69,7 +69,7 @@ export default defineNuxtConfig({
     redirect: {
       login: '/login',
       callback: '/login',
-      home: 'https://pages.deepnotes.app/',
+      home: isDev ? 'http://localhost:24579' : 'https://pages.deepnotes.app/',
       logout: '/',
     },
     strategies: {

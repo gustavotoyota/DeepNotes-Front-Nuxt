@@ -35,7 +35,7 @@
         </v-btn>
 
         <v-btn depressed
-        href="https://pages.deepnotes.app/">
+        :href="$root.context.isDev ? 'http://localhost:24579' : 'https://pages.deepnotes.app/'">
           Go to pages
         </v-btn>
 
