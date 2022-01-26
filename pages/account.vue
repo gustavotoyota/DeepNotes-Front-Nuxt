@@ -16,14 +16,14 @@ export default {
   methods: {
 
     async resendEmailLink() {
-      const response = await this.$axios.post('/api/account/email-change/request', {
+      const response = await this.$axios.post('/api/users/email-change/request', {
         email: this.$auth.user.newEmail,
       })
 
       alert(response.data.message)
     },
     async cancelEmailChange() {
-      const response = await this.$axios.post('/api/account/email-change/cancel')
+      const response = await this.$axios.post('/api/users/email-change/cancel')
 
       alert(response.data.message)
 
@@ -31,7 +31,7 @@ export default {
     },
 
     async changeEmail() {
-      const response = await this.$axios.post('/api/account/email-change/request', {
+      const response = await this.$axios.post('/api/users/email-change/request', {
         email: prompt('E-mail:', this.$auth.user.email),
       })
 
@@ -51,7 +51,7 @@ export default {
         return
       }
 
-      const response = await this.$axios.post('/api/account/password-change', passwords)
+      const response = await this.$axios.post('/api/users/password-change', passwords)
 
       alert(response.data.message)
     },
