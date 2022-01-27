@@ -8,13 +8,12 @@
       outlined
       v-model="loginData.email"/>
     
-      <v-text-field
+      <PasswordBox
       label="Password"
       id="password"
       dense
       outlined
-      v-model="loginData.password"
-      type="password"/>
+      v-model="loginData.password"/>
 
       <v-btn
       block

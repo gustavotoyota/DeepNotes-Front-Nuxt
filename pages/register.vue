@@ -26,21 +26,19 @@
       outlined
       v-model="loginData.email"/>
     
-      <v-text-field
+      <PasswordBox
       label="Password"
       id="password"
       dense
       outlined
-      v-model="loginData.password"
-      type="password"/>
+      v-model="loginData.password"/>
     
-      <v-text-field
+      <PasswordBox
       label="Repeat password"
       id="repeat-password"
       dense
       outlined
-      v-model="loginData.repeatPassword"
-      type="password"/>
+      v-model="loginData.repeatPassword"/>
 
       <v-btn
       block
