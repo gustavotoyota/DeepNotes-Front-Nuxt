@@ -46,8 +46,6 @@ export default defineNuxtConfig({
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -104,13 +102,6 @@ export default defineNuxtConfig({
         scheme: 'refresh',
       },
     },
-  },
-
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en'
-    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
