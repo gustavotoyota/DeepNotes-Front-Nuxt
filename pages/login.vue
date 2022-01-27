@@ -16,11 +16,22 @@
       v-model="loginData.password"
       type="password"/>
 
-      <v-btn type="submit">Login</v-btn>
+      <v-btn
+      block
+      type="submit">
+        Login
+      </v-btn>
     </form>
+
+    <Gap height="20px"/>
   
-    <div><NuxtLink to="register">Register</NuxtLink></div>
-    <div><NuxtLink to="recovery">Forgot my password</NuxtLink></div>
+    <div style="display: flex">
+      <NuxtLink to="register">Register</NuxtLink>
+
+      <v-spacer/>
+
+      <NuxtLink to="recovery">Forgot my password</NuxtLink>
+    </div>
   </div>
 </template>
 
