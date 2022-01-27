@@ -94,26 +94,23 @@
 
 </template>
 
-<script>
-export default {
-
-  methods: {
-    
-    logout() {
-      this.$auth.logout()
-    },
-
-  },
-
-}
-</script>
-
 <script setup>
+// Loading
+
 const mounted = ref(false)
 
 onMounted(() => {
   mounted.value = true
 })
+
+
+
+
+// Logout
+
+function logout() {
+  this.$auth.logout()
+}
 </script>
 
 <style>

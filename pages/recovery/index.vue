@@ -16,31 +16,25 @@
 <script>
 export default {
   auth: 'guest',
+}
+</script>
 
-  data() {
-    return {
-      email: '',
-    }
-  },
+<script setup>
+const email = ref('')
 
-  methods: {
+async function onSubmit() {
+  try {
+    const response = await this.$axios.post('/auth/recovery/request', {
+      email: this.email
+    })
+  
+    alert(response.data.message)
 
-    async onSubmit() {
-      try {
-        const response = await this.$axios.post('/auth/recovery/request', {
-          email: this.email
-        })
-      
-        alert(response.data.message)
-
-        if (response.data.success)
-          this.$router.push('/')
-      } catch {
-        alert('Failed to contact server.')
-      }
-    },
-
-  },
+    if (response.data.success)
+      this.$router.push('/')
+  } catch {
+    alert('Failed to contact server.')
+  }
 }
 </script>
 

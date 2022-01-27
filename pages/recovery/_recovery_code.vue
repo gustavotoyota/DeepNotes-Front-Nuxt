@@ -19,7 +19,6 @@
 export default {
   auth: 'guest',
 
-
   async validate(ctx) {
     const response = await ctx.$axios.post('/auth/recovery/validate', {
       recoveryCode: ctx.route.params.recovery_code
@@ -27,40 +26,32 @@ export default {
 
     return response.data.success
   },
+}
+</script>
 
+<script setup>
+const recoveryData = reactive({
+  recoveryCode: useRoute().params.recovery_code,
+  newPassword: '',
+  repeatPassword: '',
+})
 
-  data() {
-    return {
-      recoveryData: {
-        recoveryCode: this.$route.params.recovery_code,
-        newPassword: '',
-        repeatPassword: '',
-      },
-    }
-  },
+async function onSubmit() {
+  if (this.recoveryData.repeatPassword !== this.recoveryData.newPassword) {
+    alert('Passwords don\'t match.')
+    return
+  }
 
+  try {
+    const response = await this.$axios.post('/auth/recovery/finish', this.recoveryData)
+  
+    alert(response.data.message)
 
-  methods: {
-
-    async onSubmit() {
-      if (this.recoveryData.repeatPassword !== this.recoveryData.newPassword) {
-        alert('Passwords don\'t match.')
-        return
-      }
-
-      try {
-        const response = await this.$axios.post('/auth/recovery/finish', this.recoveryData)
-      
-        alert(response.data.message)
-
-        if (response.data.success)
-          this.$router.push('/')
-      } catch {
-        alert('Failed to contact server.')
-      }
-    },
-
-  },
+    if (response.data.success)
+      this.$router.push('/')
+  } catch {
+    alert('Failed to contact server.')
+  }
 }
 </script>
 

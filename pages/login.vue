@@ -36,38 +36,38 @@
 
 <script>
 export default {
-
   auth: 'guest',
-  
-  data() {
-    return {
-      loginData: {
-        email: '',
-        password: '',
-      }
-    }
-  },
+}
+</script>
 
-  methods: {
+<script setup>
+// Login
 
-    async onSubmit() {
-      try {
-        const response = await this.$auth.loginWith('local', {
-          data: this.loginData
-        })
-        
-        if (response.data.message)
-          alert(response.data.message)
-      } catch {
-        alert('Failed to contact server.')
-      }
-    },
+const loginData = reactive({
+  email: '',
+  password: '',
+})
 
-    logout() {
-      this.$auth.logout()
-    },
+async function onSubmit() {
+  try {
+    const response = await this.$auth.loginWith('local', {
+      data: this.loginData
+    })
+    
+    if (response.data.message)
+      alert(response.data.message)
+  } catch {
+    alert('Failed to contact server.')
+  }
+}
 
-  },
+
+
+
+// Logout
+
+function logout() {
+  this.$auth.logout()
 }
 </script>
 

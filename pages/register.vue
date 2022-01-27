@@ -51,40 +51,32 @@
 
 <script>
 export default {
-
   auth: 'guest',
+}
+</script>
 
-  data() {
-    return {
-      loginData: {
-        email: '',
-        password: '',
-      }
-    }
-  },
+<script setup>
+const loginData = reactive({
+  email: '',
+  password: '',
+})
 
-  methods: {
+async function onSubmit() {
+  if (this.loginData.password !== this.loginData.repeatPassword) {
+    alert('Passwords don\'t match')
+    return
+  }
 
-    async onSubmit() {
-      if (this.loginData.password !== this.loginData.repeatPassword) {
-        alert('Passwords don\'t match')
-        return
-      }
+  try {
+    const response = await this.$axios.post('/auth/register', this.loginData)
+  
+    alert(response.data.message)
 
-      try {
-        const response = await this.$axios.post('/auth/register', this.loginData)
-      
-        alert(response.data.message)
-
-        if (response.data.success)
-          this.$router.push('/')
-      } catch {
-        alert('Failed to contact server.')
-      }
-    },
-
-  },
-
+    if (response.data.success)
+      this.$router.push('/')
+  } catch {
+    alert('Failed to contact server.')
+  }
 }
 </script>
 
