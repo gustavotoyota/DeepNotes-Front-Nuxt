@@ -109,7 +109,7 @@ export default {
 </script>
 
 <script setup>
-const mounted = useState('mounted', () => { return false })
+const mounted = ref(false)
 
 onMounted(() => {
   mounted.value = true
