@@ -1,16 +1,25 @@
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-      <div>
-        <label for="new-password">New password:</label>
-        <input v-model="recoveryData.newPassword" id="new-password" type="password"/>
-      </div>
-      <div>
-        <label for="repeat-password">Repeat password:</label>
-        <input v-model="recoveryData.repeatPassword" id="repeat-password" type="password"/>
-      </div>
+      <PasswordBox
+      label="Password"
+      id="password"
+      dense
+      outlined
+      v-model="recoveryData.password"/>
+    
+      <PasswordBox
+      label="Repeat password"
+      id="repeat-password"
+      dense
+      outlined
+      v-model="recoveryData.repeatPassword"/>
       
-      <input type="submit" value="Change password"/>
+      <v-btn
+      block
+      type="submit">
+        Change password
+      </v-btn>
     </form>
   </div>
 </template>

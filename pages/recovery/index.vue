@@ -1,14 +1,18 @@
 <template>
   <div>
-    <NuxtLink to="/">Back</NuxtLink>
-
     <form @submit.prevent="onSubmit">
-      <div>
-        <label for="email">E-mail:</label>
-        <input v-model="email" id="email" type="text"/>
-      </div>
+      <v-text-field
+      label="E-mail"
+      id="email"
+      dense
+      outlined
+      v-model="email"/>
 
-      <input type="submit" value="Send recovery link"/>
+      <v-btn
+      block
+      type="submit">
+        Send recovery link
+      </v-btn>
     </form>
   </div>
 </template>
