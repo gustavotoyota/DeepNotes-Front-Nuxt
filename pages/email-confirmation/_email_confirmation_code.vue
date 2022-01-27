@@ -14,10 +14,8 @@ export default {
       emailConfirmationCode: ctx.route.params.email_confirmation_code
     })
 
-    if (response.data.success) {
+    if (response.data.success)
       await ctx.$auth.fetchUser()
-      await ctx.$auth.refreshTokens()
-    }
 
     return response.data.success
   },
