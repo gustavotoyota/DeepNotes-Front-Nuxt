@@ -1,6 +1,7 @@
 <template>
 
-  <v-app spellcheck="false">
+  <v-app v-show="mounted"
+  spellcheck="false">
 
     <v-app-bar app
     clipped-left clipped-right>
@@ -75,6 +76,14 @@ export default {
   },
 
 }
+</script>
+
+<script setup>
+const mounted = useState('mounted', () => { return false })
+
+onMounted(() => {
+  mounted.value = true
+})
 </script>
 
 <style>
