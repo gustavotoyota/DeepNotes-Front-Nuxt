@@ -51,7 +51,8 @@
           Go to pages
         </v-btn>
 
-        <v-btn depressed @click="logout">
+        <v-btn depressed
+        @click="$auth.logout()">
           Logout
         </v-btn>
 
@@ -95,22 +96,11 @@
 </template>
 
 <script setup>
-// Loading
-
 const mounted = ref(false)
 
 onMounted(() => {
   mounted.value = true
 })
-
-
-
-
-// Logout
-
-function logout() {
-  this.$auth.logout()
-}
 </script>
 
 <style>
