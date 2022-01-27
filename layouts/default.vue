@@ -2,7 +2,8 @@
 
   <v-app spellcheck="false">
 
-    <v-app-bar app clipped-left clipped-right dense>
+    <v-app-bar app
+    clipped-left clipped-right>
 
       <a href="/" style="display: flex">
         <img src="/icon.png"
