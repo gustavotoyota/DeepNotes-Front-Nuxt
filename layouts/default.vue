@@ -25,6 +25,11 @@
         Home
       </v-btn>
 
+      <v-btn depressed
+      nuxt to="/about">
+        About
+      </v-btn>
+
       <div v-if="!$auth.loggedIn">
 
         <v-btn depressed
