@@ -82,6 +82,7 @@
 
 
     <v-footer
+    app
     dark
     padless>
       <v-card
