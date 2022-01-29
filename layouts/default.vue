@@ -119,6 +119,10 @@ onMounted(() => {
 </script>
 
 <style>
+html {
+  overflow: auto;
+}
+
 a {
   text-decoration: none;
 }
