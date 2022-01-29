@@ -34,40 +34,42 @@
         About
       </v-btn>
 
-      <div v-if="!$auth.loggedIn"
-      style="display: flex">
+      <client-only>
+        <div v-if="!$auth.loggedIn"
+        style="display: flex">
 
-        <v-btn depressed
-        nuxt to="/login">
-          Login
-        </v-btn>
+          <v-btn depressed
+          nuxt to="/login">
+            Login
+          </v-btn>
 
-        <v-btn depressed
-        nuxt to="/register">
-          Sign up
-        </v-btn>
+          <v-btn depressed
+          nuxt to="/register">
+            Sign up
+          </v-btn>
 
-      </div>
-      
-      <div v-else
-      style="display: flex">
+        </div>
+        
+        <div v-else
+        style="display: flex">
 
-        <v-btn depressed
-        nuxt to="/account">
-          Account
-        </v-btn>
+          <v-btn depressed
+          nuxt to="/account">
+            Account
+          </v-btn>
 
-        <v-btn depressed
-        :href="$root.context.isDev ? 'http://localhost:24579' : 'https://pages.deepnotes.app/'">
-          Go to pages
-        </v-btn>
+          <v-btn depressed
+          :href="$root.context.isDev ? 'http://localhost:24579' : 'https://pages.deepnotes.app/'">
+            Go to pages
+          </v-btn>
 
-        <v-btn depressed
-        @click="$auth.logout()">
-          Logout
-        </v-btn>
+          <v-btn depressed
+          @click="$auth.logout()">
+            Logout
+          </v-btn>
 
-      </div>
+        </div>
+      </client-only>
       
     </v-app-bar>
 
