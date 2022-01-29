@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 20px">
+  <v-main style="padding: 20px">
     <form @submit.prevent="onSubmit">
       <div style="display: flex">
         <v-text-field
@@ -46,7 +46,7 @@
         Register
       </v-btn>
     </form>
-  </div>
+  </v-main>
 </template>
 
 <script>

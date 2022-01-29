@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-main>
     <div v-if="$auth.user.newEmail">
       Unconfirmed e-mail: {{ $auth.user.newEmail }}
       <v-btn @click="resendEmailLink">Resend link</v-btn>
@@ -7,7 +7,7 @@
     </div>
     <div>E-mail: {{ $auth.user.email }} <v-btn @click="changeEmail">Change</v-btn></div>
     <div>Password: ******** <v-btn @click="changePassword">Change</v-btn></div>
-  </div>
+  </v-main>
 </template>
 
 <script setup>

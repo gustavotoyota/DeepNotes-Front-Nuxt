@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 20px">
+  <v-main style="padding: 20px">
     <form @submit.prevent="onSubmit">
       <v-text-field
       label="E-mail"
@@ -31,7 +31,7 @@
 
       <NuxtLink to="recovery">Forgot my password</NuxtLink>
     </div>
-  </div>
+  </v-main>
 </template>
 
 <script>

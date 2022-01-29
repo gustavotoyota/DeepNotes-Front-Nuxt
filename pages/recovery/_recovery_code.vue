@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-main>
     <form @submit.prevent="onSubmit">
       <PasswordBox
       label="Password"
@@ -21,7 +21,7 @@
         Change password
       </v-btn>
     </form>
-  </div>
+  </v-main>
 </template>
 
 <script>

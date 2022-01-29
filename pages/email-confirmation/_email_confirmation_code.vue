@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-main>
     <div>E-mail confirmed successfully.</div>
     <NuxtLink to="/">Back</NuxtLink>
-  </div>
+  </v-main>
 </template>
 
 <script>

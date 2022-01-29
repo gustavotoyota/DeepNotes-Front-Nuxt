@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-main>
     <form @submit.prevent="onSubmit">
       <v-text-field
       label="E-mail"
@@ -14,7 +14,7 @@
         Send recovery link
       </v-btn>
     </form>
-  </div>
+  </v-main>
 </template>
 
 <script>

@@ -76,11 +76,8 @@
 
 
 
-    <v-main>
-
-      <Nuxt/>
-
-    </v-main>
+    <Nuxt/>
+    
 
 
 

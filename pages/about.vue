@@ -1,7 +1,7 @@
 <template>
   
-  <div>
-  </div>
+  <v-main>
+  </v-main>
 
 </template>
 
