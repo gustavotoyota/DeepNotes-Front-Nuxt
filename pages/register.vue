@@ -1,51 +1,53 @@
 <template>
-  <v-main style="padding: 20px">
-    <form @submit.prevent="onSubmit">
-      <div style="display: flex">
+  <v-main>
+    <div style="padding: 20px">
+      <form @submit.prevent="onSubmit">
+        <div style="display: flex">
+          <v-text-field
+          label="First name"
+          id="first-name"
+          dense
+          outlined
+          v-model="loginData.firstName"/>
+
+          <Gap width="20px"/>
+
+          <v-text-field
+          label="Last name"
+          id="last-name"
+          dense
+          outlined
+          v-model="loginData.lastName"/>
+        </div>
+
         <v-text-field
-        label="First name"
-        id="first-name"
+        label="E-mail"
+        id="email"
         dense
         outlined
-        v-model="loginData.firstName"/>
-
-        <Gap width="20px"/>
-
-        <v-text-field
-        label="Last name"
-        id="last-name"
+        v-model="loginData.email"/>
+      
+        <PasswordBox
+        label="Password"
+        id="password"
         dense
         outlined
-        v-model="loginData.lastName"/>
-      </div>
+        v-model="loginData.password"/>
+      
+        <PasswordBox
+        label="Repeat password"
+        id="repeat-password"
+        dense
+        outlined
+        v-model="loginData.repeatPassword"/>
 
-      <v-text-field
-      label="E-mail"
-      id="email"
-      dense
-      outlined
-      v-model="loginData.email"/>
-    
-      <PasswordBox
-      label="Password"
-      id="password"
-      dense
-      outlined
-      v-model="loginData.password"/>
-    
-      <PasswordBox
-      label="Repeat password"
-      id="repeat-password"
-      dense
-      outlined
-      v-model="loginData.repeatPassword"/>
-
-      <v-btn
-      block
-      type="submit">
-        Register
-      </v-btn>
-    </form>
+        <v-btn
+        block
+        type="submit">
+          Register
+        </v-btn>
+      </form>
+    </div>
   </v-main>
 </template>
 
