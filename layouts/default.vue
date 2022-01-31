@@ -111,6 +111,8 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from '@nuxtjs/composition-api'
+
 const mounted = ref(false)
 
 onMounted(() => {

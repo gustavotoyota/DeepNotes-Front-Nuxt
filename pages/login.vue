@@ -43,6 +43,8 @@ export default {
 </script>
 
 <script setup>
+import { reactive } from '@nuxtjs/composition-api'
+
 // Login
 
 const loginData = reactive({

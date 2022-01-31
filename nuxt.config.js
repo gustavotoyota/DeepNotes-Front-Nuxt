@@ -1,10 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 
-import { defineNuxtConfig } from '@nuxt/bridge'
-
 const isDev = process.env.NODE_ENV === 'development'
 
-export default defineNuxtConfig({
+export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'DeepNotes',
@@ -25,11 +23,6 @@ export default defineNuxtConfig({
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/app/mixins/global-mixin.js' },
-    { src: '~/plugins/app/mixins/app-mixin.js' },
-
-    { src: '~/plugins/app/app.js' },
-    { src: '~/plugins/app/utils.js' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +32,7 @@ export default defineNuxtConfig({
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/composition-api/module',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -126,4 +120,8 @@ export default defineNuxtConfig({
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-})
+
+  server: {
+    port: 60379,
+  },
+}

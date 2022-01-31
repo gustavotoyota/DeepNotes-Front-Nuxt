@@ -24,6 +24,8 @@ export default {
 </script>
 
 <script setup>
+import { ref } from '@nuxtjs/composition-api'
+
 const email = ref('')
 
 async function onSubmit() {

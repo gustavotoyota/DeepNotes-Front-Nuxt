@@ -1,4 +1,4 @@
-# DeepNotes-Integration
+# DeepNotes-Front
 
 ## Build Setup
 

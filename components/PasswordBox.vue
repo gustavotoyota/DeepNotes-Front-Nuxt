@@ -11,6 +11,8 @@
 </template>
 
 <script setup>
+import { ref } from '@nuxtjs/composition-api'
+
 const showPassword = ref(false)
 </script>
 
