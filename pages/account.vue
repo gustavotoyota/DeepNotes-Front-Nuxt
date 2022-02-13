@@ -55,7 +55,7 @@
 
 <script setup>
 async function resendEmailLink() {
-  const response = await this.$axios.post('/api/users/email-change/request', {
+  const response = await this.$axios.post('/api/user/email-change/request', {
     email: this.$auth.user.newEmail,
   })
 
@@ -65,7 +65,7 @@ async function cancelEmailChange() {
   if (!confirm('Are you sure you want to cancel the e-mail change request?'))
     return
   
-  const response = await this.$axios.post('/api/users/email-change/cancel')
+  const response = await this.$axios.post('/api/user/email-change/cancel')
 
   alert(response.data.message)
 
@@ -77,7 +77,7 @@ async function changeEmail() {
   if (!newEmail)
     return
 
-  const response = await this.$axios.post('/api/users/email-change/request', {
+  const response = await this.$axios.post('/api/user/email-change/request', {
     email: newEmail,
   })
 
@@ -108,7 +108,7 @@ async function changePassword() {
 
   
 
-  const response = await this.$axios.post('/api/users/password-change', passwords)
+  const response = await this.$axios.post('/api/user/password-change', passwords)
 
   alert(response.data.message)
 }
