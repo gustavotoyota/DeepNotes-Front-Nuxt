@@ -2,24 +2,6 @@
   <v-main>
     <div style="padding: 20px">
       <form @submit.prevent="onSubmit">
-        <div style="display: flex">
-          <v-text-field
-          label="First name"
-          id="first-name"
-          dense
-          outlined
-          v-model="loginData.firstName"/>
-
-          <Gap width="20px"/>
-
-          <v-text-field
-          label="Last name"
-          id="last-name"
-          dense
-          outlined
-          v-model="loginData.lastName"/>
-        </div>
-
         <v-text-field
         label="E-mail"
         id="email"
@@ -58,6 +40,11 @@ export default {
 </script>
 
 <script setup>
+import { reactive } from '@nuxtjs/composition-api';
+
+
+
+
 const loginData = reactive({
   email: '',
   password: '',
