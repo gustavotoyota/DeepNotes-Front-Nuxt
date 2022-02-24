@@ -29,11 +29,6 @@
         Home
       </v-btn>
 
-      <v-btn depressed
-      nuxt to="/about">
-        About
-      </v-btn>
-
       <client-only>
         <div v-if="!$auth.loggedIn"
         style="display: flex">
