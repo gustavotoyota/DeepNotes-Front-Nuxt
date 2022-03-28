@@ -55,7 +55,7 @@
 
           <v-btn depressed
           :href="$root.context.isDev ? 'http://192.168.1.3:24579' : 'https://pages.deepnotes.app/'">
-            Go to pages
+            Pages
           </v-btn>
 
           <v-btn depressed
