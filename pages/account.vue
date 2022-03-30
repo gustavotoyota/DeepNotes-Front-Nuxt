@@ -41,22 +41,37 @@
 
     <v-main>
       <div style="padding: 32px">
-        <div v-if="$auth.user.newEmail">
-          Unconfirmed e-mail: {{ $auth.user.newEmail }}
+        <div v-if="authUser.newEmail">
+          Unconfirmed e-mail: {{ authUser.newEmail }}
           <v-btn @click="resendEmailLink">Resend link</v-btn>
           <v-btn @click="cancelEmailChange">Cancel change</v-btn>
         </div>
-        <div>E-mail: {{ $auth.user.email }} <v-btn @click="changeEmail">Change e-mail</v-btn></div>
+        <div>E-mail: {{ authUser.email }} <v-btn @click="changeEmail">Change e-mail</v-btn></div>
         <div>Password: ******** <v-btn @click="changePassword">Change password</v-btn></div>
       </div>
     </v-main>
   </div>
 </template>
 
-<script setup>
+
+
+
+<script setup lang="ts">
+import { useContext } from '@nuxtjs/composition-api';
+
+
+
+
+const ctx = useContext()
+
+const authUser = (ctx.$auth.user ? ctx.$auth.user : {})
+
+
+
+
 async function resendEmailLink() {
-  const response = await this.$axios.post('/api/user/email-change/request', {
-    email: this.$auth.user.newEmail,
+  const response = await ctx.$axios.post('/api/user/email-change/request', {
+    email: authUser.newEmail,
   })
 
   alert(response.data.message)
@@ -65,29 +80,29 @@ async function cancelEmailChange() {
   if (!confirm('Are you sure you want to cancel the e-mail change request?'))
     return
   
-  const response = await this.$axios.post('/api/user/email-change/cancel')
+  const response = await ctx.$axios.post('/api/user/email-change/cancel')
 
   alert(response.data.message)
 
-  await this.$auth.fetchUser()
+  await ctx.$auth.fetchUser()
 }
 
 async function changeEmail() {
-  const newEmail = prompt('E-mail:', this.$auth.user.email)
+  const newEmail = prompt('E-mail:', authUser.email as string)
   if (!newEmail)
     return
 
-  const response = await this.$axios.post('/api/user/email-change/request', {
+  const response = await ctx.$axios.post('/api/user/email-change/request', {
     email: newEmail,
   })
 
   alert(response.data.message)
 
-  await this.$auth.fetchUser()
+  await ctx.$auth.fetchUser()
 }
 
 async function changePassword() {
-  const passwords = {}
+  const passwords = {} as any
 
   passwords.newPassword = prompt('New password:', '')
   if (!passwords.newPassword)
@@ -108,11 +123,14 @@ async function changePassword() {
 
   
 
-  const response = await this.$axios.post('/api/user/password-change', passwords)
+  const response = await ctx.$axios.post('/api/user/password-change', passwords)
 
   alert(response.data.message)
 }
 </script>
+
+
+
 
 <style>
 

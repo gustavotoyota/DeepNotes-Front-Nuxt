@@ -5,11 +5,19 @@
   </v-main>
 </template>
 
-<script>
+
+
+
+<script lang="ts">
+import { Context } from "@nuxt/types"
+
+
+
+
 export default {
   auth: false,
 
-  async validate(ctx) {
+  async validate(ctx: Context) {
     const response = await ctx.$axios.post('/auth/email-confirmation', {
       emailConfirmationCode: ctx.route.params.email_confirmation_code
     })
@@ -21,6 +29,9 @@ export default {
   },
 }
 </script>
+
+
+
 
 <style>
 

@@ -36,14 +36,26 @@
   </v-main>
 </template>
 
-<script>
+
+
+
+<script lang="ts">
 export default {
   auth: 'guest',
 }
 </script>
 
-<script setup>
-import { reactive } from '@nuxtjs/composition-api'
+
+
+
+<script setup lang="ts">
+import { HTTPResponse } from '@nuxtjs/auth-next';
+import { reactive, useContext } from '@nuxtjs/composition-api'
+
+const ctx = useContext()
+
+
+
 
 // Login
 
@@ -52,26 +64,20 @@ const loginData = reactive({
   password: '',
 })
 
+
+
+
 async function onSubmit() {
   try {
-    const response = await this.$auth.loginWith('local', {
-      data: this.loginData
-    })
+    const response = await ctx.$auth.loginWith('local', {
+      data: loginData
+    }) as HTTPResponse
     
     if (response.data.message)
       alert(response.data.message)
   } catch {
     alert('Failed to contact server.')
   }
-}
-
-
-
-
-// Logout
-
-function logout() {
-  this.$auth.logout()
 }
 </script>
 

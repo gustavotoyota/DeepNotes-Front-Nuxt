@@ -10,7 +10,7 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from '@nuxtjs/composition-api'
 
 const showPassword = ref(false)

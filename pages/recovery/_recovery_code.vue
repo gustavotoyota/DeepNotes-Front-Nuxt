@@ -6,7 +6,7 @@
       id="password"
       dense
       outlined
-      v-model="recoveryData.password"/>
+      v-model="recoveryData.newPassword"/>
     
       <PasswordBox
       label="Repeat password"
@@ -24,7 +24,10 @@
   </v-main>
 </template>
 
-<script>
+
+
+
+<script lang="ts">
 export default {
   auth: 'guest',
 
@@ -38,26 +41,39 @@ export default {
 }
 </script>
 
-<script setup>
+
+
+
+<script setup lang="ts">
+import { reactive, useContext, useRoute, useRouter } from '@nuxtjs/composition-api';
+
+const ctx = useContext()
+
+
+
+
 const recoveryData = reactive({
-  recoveryCode: useRoute().params.recovery_code,
+  recoveryCode: useRoute().value.params.recovery_code,
   newPassword: '',
   repeatPassword: '',
 })
 
+
+
+
 async function onSubmit() {
-  if (this.recoveryData.repeatPassword !== this.recoveryData.newPassword) {
+  if (recoveryData.repeatPassword !== recoveryData.newPassword) {
     alert('Passwords don\'t match.')
     return
   }
 
   try {
-    const response = await this.$axios.post('/auth/recovery/finish', this.recoveryData)
+    const response = await ctx.$axios.post('/auth/recovery/finish', recoveryData)
   
     alert(response.data.message)
 
     if (response.data.success)
-      this.$router.push('/')
+      useRouter().push('/')
   } catch {
     alert('Failed to contact server.')
   }

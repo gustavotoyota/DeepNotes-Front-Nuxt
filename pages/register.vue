@@ -33,14 +33,22 @@
   </v-main>
 </template>
 
-<script>
+
+
+
+<script lang="ts">
 export default {
   auth: 'guest',
 }
 </script>
 
-<script setup>
-import { reactive } from '@nuxtjs/composition-api';
+
+
+
+<script setup lang="ts">
+import { reactive, useContext, useRouter } from '@nuxtjs/composition-api';
+
+const ctx = useContext()
 
 
 
@@ -48,21 +56,25 @@ import { reactive } from '@nuxtjs/composition-api';
 const loginData = reactive({
   email: '',
   password: '',
+  repeatPassword: '',
 })
 
+
+
+
 async function onSubmit() {
-  if (this.loginData.password !== this.loginData.repeatPassword) {
+  if (loginData.password !== loginData.repeatPassword) {
     alert('Passwords don\'t match')
     return
   }
 
   try {
-    const response = await this.$axios.post('/auth/register', this.loginData)
+    const response = await ctx.$axios.post('/auth/register', loginData)
   
     alert(response.data.message)
 
     if (response.data.success)
-      this.$router.push('/')
+      useRouter().push('/')
   } catch {
     alert('Failed to contact server.')
   }

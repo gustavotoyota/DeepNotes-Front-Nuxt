@@ -54,7 +54,7 @@
           </v-btn>
 
           <v-btn depressed
-          :href="$root.context.isDev ? 'http://192.168.1.3:24579' : 'https://pages.deepnotes.app/'">
+          :href="ctx.isDev ? 'http://192.168.1.3:24579' : 'https://pages.deepnotes.app/'">
             Pages
           </v-btn>
 
@@ -105,10 +105,18 @@
 
 </template>
 
-<script setup>
-import { ref, onMounted } from '@nuxtjs/composition-api'
+<script setup lang="ts">
+import { ref, onMounted, useContext } from '@nuxtjs/composition-api'
+
+const ctx = useContext()
+
+
+
 
 const mounted = ref(false)
+
+
+
 
 onMounted(() => {
   mounted.value = true
